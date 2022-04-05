@@ -40,19 +40,6 @@ class _signupState extends State<signup> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        "Welcome to Swapmate ",
-                        style: TextStyle(
-                          fontSize: 25,
-                          color: HPrimarycolor,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-
-                    ),
-                    Text(
-                      'Get Start from here',
-                      style: TextStyle(fontSize: 20),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15),
@@ -71,9 +58,15 @@ class _signupState extends State<signup> {
                       height: 20.0,
                     ),
                     Text('or'),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                    ),
                     Text(
                       'Signup with your E-mail',
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.w300,),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ],
                 ),
@@ -87,12 +80,12 @@ class _signupState extends State<signup> {
                       Column(
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.only(left: 10.0, right: 10 ,bottom: 4),
+                            padding: const EdgeInsets.only(
+                                left: 10.0, right: 10, bottom: 4),
                             child: TextFormField(
                               controller: emailController,
-                              validator: (value){
-                                if (value!.isEmpty){
+                              validator: (value) {
+                                if (value!.isEmpty) {
                                   return ("enter valid email address");
                                 }
                               },
@@ -121,19 +114,18 @@ class _signupState extends State<signup> {
                       Column(
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.only(left: 10.0, right: 10,bottom: 4),
+                            padding: const EdgeInsets.only(
+                                left: 10.0, right: 10, bottom: 4),
                             child: TextFormField(
                               controller: passworController,
-                              validator: (value){
+                              validator: (value) {
                                 RegExp regex = new RegExp(r'^.{6,}$');
-                                if (value!.isEmpty){
+                                if (value!.isEmpty) {
                                   return ("you need to provide valid password");
                                 }
-                                if (!regex.hasMatch(value))
-                                  {
-                                    return("Password should be include at least 6 characters");
-                                  }
+                                if (!regex.hasMatch(value)) {
+                                  return ("Password should be include at least 6 characters");
+                                }
                               },
                               obscureText: true,
                               enableSuggestions: false,
@@ -168,12 +160,11 @@ class _signupState extends State<signup> {
                                 const EdgeInsets.only(left: 10.0, right: 10),
                             child: TextFormField(
                               controller: cpassworController,
-                              validator: (value){
-
-                                if (cpassworController.text.length > 6 && passworController.text != value){
+                              validator: (value) {
+                                if (cpassworController.text.length > 6 &&
+                                    passworController.text != value) {
                                   return ("Password dont match");
                                 }
-
                               },
                               obscureText: true,
                               enableSuggestions: false,
@@ -202,7 +193,7 @@ class _signupState extends State<signup> {
                         ],
                       ),
                       SizedBox(
-                        height: size.height*0.09,
+                        height: size.height * 0.09,
                       ),
                       Container(
                         height: 140,
@@ -217,22 +208,23 @@ class _signupState extends State<signup> {
                                     child: Text("Register".toUpperCase(),
                                         style: TextStyle(fontSize: 14)),
                                     style: ButtonStyle(
-                                        padding: MaterialStateProperty.all<EdgeInsets>(
-                                            EdgeInsets.all(15)),
+                                        padding:
+                                            MaterialStateProperty.all<EdgeInsets>(
+                                                EdgeInsets.all(15)),
                                         foregroundColor:
-                                        MaterialStateProperty.all<Color>(HWhite),
+                                            MaterialStateProperty.all<Color>(
+                                                HWhite),
                                         backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            HPrimarycolor),
+                                            MaterialStateProperty.all<Color>(
+                                                HPrimarycolor),
                                         shape: MaterialStateProperty.all<
-                                            RoundedRectangleBorder>(
+                                                RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
-                                                borderRadius:
-                                                BorderRadius.circular(50.0),
-                                                side:
-                                                BorderSide(color: HPrimarycolor)))),
+                                                borderRadius: BorderRadius.circular(50.0),
+                                                side: BorderSide(color: HPrimarycolor)))),
                                     onPressed: () {
-                                      Signup(emailController.text, passworController.text);
+                                      Signup(emailController.text,
+                                          passworController.text);
                                     }),
                               ),
                             ),
@@ -243,22 +235,27 @@ class _signupState extends State<signup> {
                                   child: Text("Cancel".toUpperCase(),
                                       style: TextStyle(fontSize: 14)),
                                   style: ButtonStyle(
-                                      padding: MaterialStateProperty.all<EdgeInsets>(
-                                          EdgeInsets.all(15)),
-                                      foregroundColor: MaterialStateProperty.all<Color>(
-                                          HPrimarycolor),
+                                      padding:
+                                          MaterialStateProperty.all<EdgeInsets>(
+                                              EdgeInsets.all(15)),
+                                      foregroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              HPrimarycolor),
                                       backgroundColor:
-                                      MaterialStateProperty.all<Color>(HWhite),
+                                          MaterialStateProperty.all<Color>(
+                                              HWhite),
                                       shape: MaterialStateProperty.all<
-                                          RoundedRectangleBorder>(
+                                              RoundedRectangleBorder>(
                                           RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(50.0),
+                                              borderRadius:
+                                                  BorderRadius.circular(50.0),
                                               side: BorderSide(color: HPrimarycolor)))),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => const welcome()),
+                                          builder: (context) =>
+                                              const welcome()),
                                     );
                                   }),
                             ),
@@ -266,7 +263,9 @@ class _signupState extends State<signup> {
                               height: size.height * 0.01,
                             ),
                             GestureDetector(
-                              onTap: (){Navigator.pop(context);},
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
                               child: Text(
                                 "Allready have an account?",
                                 style: TextStyle(
@@ -289,36 +288,32 @@ class _signupState extends State<signup> {
     );
   }
 
-  void Signup (String email, String password) async
-  {
-    if(_formKey.currentState!.validate())
-      {
-        await _auth.createUserWithEmailAndPassword(email: email, password: password).then((value) =>{
-            }
-
-            ).catchError((e){
-              print("catch");
-              Fluttertoast.showToast(msg: e!.message);
-        });
-        Fluttertoast.showToast(msg: "Account Created");
-      }
-
+  void Signup(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) => {})
+          .catchError((e) {
+        print("catch");
+        Fluttertoast.showToast(msg: e!.message);
+      });
+      Fluttertoast.showToast(msg: "Account Created");
+    }
   }
-  postDetailsToFirestore()async{
-  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  User? user = _auth.currentUser;
-  userModel usermodel = userModel();
 
-  usermodel.email = user!.email;
+  postDetailsToFirestore() async {
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+    userModel usermodel = userModel();
 
+    usermodel.email = user!.email;
 
-  await firebaseFirestore
-  .collection("Customer")
-  .doc(user.uid)
-  .set(usermodel.toMap());
-  Fluttertoast.showToast(msg: "Account Created");
-  Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context) => login()), (route) => false);
-
-
+    await firebaseFirestore
+        .collection("Customer")
+        .doc(user.uid)
+        .set(usermodel.toMap());
+    Fluttertoast.showToast(msg: "Account Created");
+    Navigator.pushAndRemoveUntil((context),
+        MaterialPageRoute(builder: (context) => login()), (route) => false);
   }
 }

@@ -222,14 +222,6 @@ class _loginState extends State<login> {
             key: _formKey,
             child: Column(
               children: [
-                Text(
-                  "Welcome Back To SwapMate",
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: HPrimarycolor,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
@@ -252,8 +244,12 @@ class _loginState extends State<login> {
                 SizedBox(
                   height: size.height * 0.05,
                 ),
+                Text('or'),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                ),
                 Text(
-                  'Or Login with your e-mail',
+                  'Login with your e-mail',
                   style: TextStyle(fontSize: 15),
                 ),
                 SizedBox(
@@ -364,7 +360,6 @@ class _loginState extends State<login> {
                                               color: HPrimarycolor)))),
                               onPressed: () {
                                 Signin(myController.text, myController2.text);
-
                               }),
                         ),
                       ),
